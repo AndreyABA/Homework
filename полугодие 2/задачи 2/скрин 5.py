@@ -1,27 +1,21 @@
-class aviacompany:
+class biblioteka:
     def __init__(self):
-        self.planes=[]
-        self.negr={}
-    def add_plane(self, model):
-        self.planes.append(model)
-    def remove_plane(self, model):
-        if model in self.planes:
-            self.planes.remove(model)
-    def add_negr(self, gorod, zxc):
-        if gorod in self.negr:
-            self.negr[gorod].append(zxc)
+        self.spisok=[]
+    def add_kniga(self, b):
+        self.spisok.append(b)
+        print(f"книга '{b}' добавлена в библиотеку")
+    def remove_kniga(self, b):
+        if b in self.spisok:
+            self.spisok.remove(b)
+            print(f"книга '{b}' удалена из библиотеки")
         else:
-            self.negr[gorod]=[zxc]
-    def remove_negr(self, gorod, zxc):
-        if gorod in self.negr and zxc in self.negr[gorod]:
-            self.negr[gorod].remove(zxc)
-    def find_plane(self, model):
-        return model in self.planes
-    def find_negr(self, gorod):
-        return self.negr.get(gorod, [])
-a=aviacompany()
-a.add_plane('Боинг 747')
-print(a.planes)
-a.add_negr('Москва', 'Бахмут')
-a.add_negr('Москва', 'Киев')
-print(a.find_negr('Москва'))
+            print(f"книги '{b}' нет в библиотеке")
+    def find_kniga(self, b):
+        if b in self.spisok:
+            print(f"книга '{b}' найдена в библиотеке")
+        else:
+            print(f"книга '{b}' не найдена в библиотеке")
+c=biblioteka()
+c.add_kniga('Преступление и наказание')
+c.add_kniga('Мастер и Маргарита')
+c.find_kniga('1984')
